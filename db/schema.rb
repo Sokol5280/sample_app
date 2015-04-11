@@ -13,14 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150326115820) do
 
-  create_table "microposts", force: true do |t|
+  create_table "microposts", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"

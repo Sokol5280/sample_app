@@ -24,7 +24,7 @@ gem 'turbolinks', '~> 2.5.3'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 group :doc do
- gem 'sdoc', '~> 0.4.0', require: false, group: :doc
+ gem 'sdoc', '~> 0.4.0', require: false
 end
 # Gems for the working with Heroku
 group :production do
@@ -42,10 +42,10 @@ gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
