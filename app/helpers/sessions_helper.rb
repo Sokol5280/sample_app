@@ -47,5 +47,4 @@ module SessionsHelper
     session[:return_to] = request.url if request.get?
   end
 
-
 end

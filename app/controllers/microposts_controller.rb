@@ -16,7 +16,6 @@ class MicropostsController < ApplicationController
     end
   end
 
-
   def destroy
     @micropost.destroy
 		flash[:success] = "Micropost deleted"
@@ -56,16 +55,6 @@ class MicropostsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /microposts/1
-  # DELETE /microposts/1.json
-  def destroy
-    @micropost.destroy
-    respond_to do |format|
-      format.html { redirect_to microposts_url, notice: 'Micropost was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
