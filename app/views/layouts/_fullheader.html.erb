@@ -1,0 +1,134 @@
+<!-- ***** Initialized: Listing 5.24 ***** -->
+<!-- ***** Updated: Listing 8.24 ***** -->
+<!-- ***** Updated: Listing 9.7 ***** -->
+<!-- ***** Begin: Listing 9.28 ***** -->
+<header>
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <% if signed_in? %>
+        <%= link_to "project manager", about_path, id: "logo" %>
+      <% else %>
+        <%= link_to "project manager", root_path, id: "logo" %>
+      <% end %>
+      <nav>
+        <ul class="nav pull-right">
+          <!--li><%= link_to "Home", root_path %></li-->
+          <% if signed_in? %>
+
+<% if Rails.env.development? %>
+            <li><%= link_to "Overview", overview_path %></li> 
+<% end %>         
+<% if Rails.env.development? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Projects <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Status", projects_path %></li>
+              <li><%= link_to "Dev View", dev_projects_path %></li>
+              </ul>
+            </li>
+<% else %>
+          <li><%= link_to "Projects", projects_path %></li>
+<% end %>
+<% if Rails.env.development? %>
+            <li><%= link_to "Teams", teams_path %></li> 
+<% end %>
+<% if Rails.env.development? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Tasks <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Status", tasks_status_path %></li>
+              <li><%= link_to "Tree", tasks_tree_path %></li>
+              <li><%= link_to "Dev View", dev_tasks_path %></li>
+              </ul>
+            </li>
+<% else %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Tasks <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Status View", tasks_status_path %></li>
+              <li><%= link_to "Tree View", tasks_tree_path %></li>
+              </ul>
+            </li>
+<% end %>
+
+<% if Rails.env.development? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reports <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Project Progress", analysis_path %></li>
+              <li><%= link_to "Revision History", history_path %></li>
+              </ul>
+            </li>              
+<% else %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Reports <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              <li><%= link_to "Revision History", history_path %></li>
+              </ul>
+            </li>
+<% end %>
+<% if Rails.env.development? %>
+            <li><%= link_to "Help", help_path %></li>
+<% end %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+<% if current_user.admin? %>
+                <li><%= link_to "Admin", users_path %></li> 
+<% end %>
+<% if Rails.env.development? %>
+                <li><%= link_to "Profile", current_user %></li>
+<% end %>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, :method => :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- ***** End: Listing 9.28 ***** -->
+	
+==================================================
+	
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+		<%= link_to "Sample application", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Users", users_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
