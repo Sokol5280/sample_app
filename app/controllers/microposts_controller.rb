@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost was successfully created!"
+      flash[:success] = "Сообщение было успешно создано!"
       redirect_to root_url
     else
       @feed_items = []
@@ -18,7 +18,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-		flash[:success] = "Micropost deleted"
+		flash[:success] = "Сообщение было удалено."
     redirect_to request.referrer || root_url
   end
 	
@@ -42,14 +42,12 @@ class MicropostsController < ApplicationController
   def edit
   end
 
-
-
   # PATCH/PUT /microposts/1
   # PATCH/PUT /microposts/1.json
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
+        format.html { redirect_to @micropost, notice: 'Сообщение было успешно обновлено.' }
         format.json { render :show, status: :ok, location: @micropost }
       else
         format.html { render :edit }

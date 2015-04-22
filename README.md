@@ -1,4 +1,1 @@
-# Ruby on Rails Tutorial: First application
-
-This is the first sample application
-[*Ruby on Rails Tutorial*](http://railstutorial.org/)
+[*This is the page of the Complex Services Ltd.*](http://www.compnet.kz/)

@@ -34,34 +34,29 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+			flash[:success] = "Добро пожаловать на страницу Complx Services!"
       redirect_to @user
     else
       render 'new'
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-
   def update
     if @user.update_attributes(user_params)
-			flash[:success] = "Profile succesfully updated"
+			flash[:success] = "Ваш профиль был успешно обновлён."
       redirect_to @user
     else
       render 'edit'
     end
   end
-	
-  # DELETE /users/1
-  # DELETE /users/1.json
+
   def destroy
-    User.find(params[:id]).destroy
-		flash[:success] = "User successfully deleted."
+		User.find(params[:id]).destroy
+		flash[:success] = "Пользователь был успешно удалён."
     redirect_to users_url
   end
-
-  def following
+  
+	def following
     @title = "Following"
     @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
@@ -87,14 +82,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 	
-    # Before filters
-	  #def signed_in_user
-     # unless signed_in?
-      #  store_location
-       # redirect_to signin_url, notice: "Please sign in."
-      #end
-    #end
-
 		def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)

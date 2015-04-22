@@ -319,7 +319,7 @@ span.picture {
   }
 }
 
-
-.dropdown:hover > .dropdown-menu { 
+.dropdown:active > .dropdown-menu { 
     display: block; 
-} 
+		delay: 1000
+}
